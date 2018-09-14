@@ -1,5 +1,8 @@
-import { all, call, put, takeEvery } from 'redux-saga/effects';
+import  {all, call, put, takeEvery} from 'redux-saga/effects';
+import axios from 'axios';
 import fetch from 'isomorphic-fetch';
+import * as aboutActions from '../about/actions';
+import {watchAboutSaga} from '../about/sagas'
 
 import {
     FETCH_GISTS_REQUESTED,
@@ -48,6 +51,7 @@ export function* fetchGistsSaga() {
 
 export default function* rootSaga() {
     yield all([
+        watchAboutSaga(),
         fetchGistsSaga(),
     ]);
 }

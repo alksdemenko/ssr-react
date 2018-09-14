@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 
 
 import { fetchGists as fetchGistsAction } from './actions';
+import { requestNewsApi as fetchNewsAction } from './actions'
 import GistsList from './GistList';
 
 export class HomePage extends Component {
@@ -15,7 +16,8 @@ export class HomePage extends Component {
     }
 
     render() {
-        const { gists } = this.props;
+        const { gists} = this.props;
+
         return (
             <div>
                 <Helmet
@@ -41,8 +43,12 @@ HomePage.defaultProps = {
     gists: [],
 };
 
-const mapStateToProps = ({ gists }) => ({
-    gists,
-});
+const mapStateToProps = (state) => {
+    return{
+        gists: state.gists
+    }
+};
 
-export default connect(mapStateToProps, { loadGists: fetchGistsAction })(HomePage);
+
+
+export default connect(mapStateToProps, { loadGists: fetchGistsAction, loadNews: fetchNewsAction })(HomePage);

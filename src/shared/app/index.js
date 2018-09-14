@@ -30,6 +30,7 @@ const App = () => (
         <MainMenu />
         <Switch>
             <Route exact path="/" component={Routes.HomePage} />
+            <Route exact path="/about" component={Routes.About} />
             <Route path="/playlists/:playlistId(pl-[a-z]{0,4})" component={Routes.PlaylistPage} />
             <Route path="/playlists" component={Routes.PlayListsPage} />
             <Route path="/search-album" component={Routes.SearchAlbumPage} />

@@ -13,7 +13,8 @@ export const renderHeader = helmet => `
             <div id="root">
 `;
 
-export const renderFooter = (css, loadableState, preloadedState) => `
+export const renderFooter = (css, loadableState, preloadedState) => {
+    return `
             </div>
             <script>
                 // WARNING: See the following for security issues around embedding JSON in HTML:
@@ -26,4 +27,4 @@ export const renderFooter = (css, loadableState, preloadedState) => `
             ${loadableState.getScriptTag()}
         </body>
     </html>
-`;
+`};
